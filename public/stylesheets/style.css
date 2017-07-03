@@ -1,3 +1,77 @@
 * {
   text-align: center;
+  font-family:sans-serif;
+}
+form{
+  display: inline;
+}
+.receiver{
+  color: red;
+  font-weight: bold;
+  text-align: left;
+}
+.sender{
+  color: blue;
+  font-weight: bold;
+  text-align: right;
+}
+.left{
+  text-align: left;
+  padding-left: 550px
+}
+.right{
+  text-align: right;
+  padding-right: 550px;
+}
+#header{
+  background-color:deepskyblue;
+  color:white;
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 0px;
+  box-shadow: 0px 5px 10px #888888;
+}
+#textbox{
+  border: 1px solid #848484;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   outline:0;
+   height:25px;
+   width: 275px;
+   padding-left:10px;
+   padding-right:10px;
+   align-self: center;
+}
+#user_textbox{
+  border: 1px solid #848484;
+   -webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 20px;
+   outline:0;
+   height:25px;
+   width: 100px;
+   padding-left:10px;
+   padding-right:10px;
+}
+#button{
+  background-color: lightgrey;
+  border: none;
+  font-size: 12px;
+  padding: 8px 28px;
+  border: lightgrey;
+  border-radius: 50px;
+  -webkit-transition-duration: 0.4s;
+}
+#inputBoxes{
+  position:fixed;
+  top:80%;
+  padding-left: 36%;
+  font-size: 12px;
+}
+img{
+  display: inline-block;
+  vertical-align: middle;
+
 }

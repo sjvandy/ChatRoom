@@ -4,34 +4,32 @@ var para;
 var node;
 var element;
 
-
-
 socket.on('server', function(data){
   console.log('connected to server');
 });
   socket.emit('client');
-function onClick(){
-  var data = {
-    user: document.getElementById("name").value,
-    text: document.getElementById("chatbox").value
-  }
-  socket.emit('message', data);
-  
-  PresentMessage(data);
-  document.getElementById("chatbox").value = "";
-};
 
-socket.on('OneMessage', function(data){
-  PresentMessage(data);
+
+var app = angular.module('ChatRoomApp', []);
+app.controller('ChatRoomController', function($scope, socket) {
+  $scope.messages = [];
+  $scope.send = function(){
+    var data = {
+      user: $scope.user,
+      text: $scope.text,
+      isSender: true,
+      mycssclassname: "sender"
+    };
+    $scope.messages.push(data);
+    console.log($scope.data)
+    socket.emit('message', data);
+    console.log("data sent");
+    $scope.text = "";
+    console.log("box cleared");
+  };
+  socket.on('OneMessage', function(data){
+    console.log(data);
+    data.isSender = false;
+    $scope.messages.push(data);
+  });
 });
-
-function PresentMessage(data){
-  var totalMessage = data.user + ": " + data.text;
-  para = document.createElement("p");
-  node = document.createTextNode(totalMessage);
-  element = document.getElementById("Conversation");
-  para.appendChild(node);
-  element.appendChild(para);
-};
-
-

@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Chat Room</title>
   <link href="stylesheets/style.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-  <h1>CHATROOM</h1>
-  <div id="Conversation">
-    
-  </div>
-  <input type="text" id="name" size="10" value="Name">
-  <input type="text" id="chatbox" size="50" value="Message">
-  <button onclick="onClick()" id="button">Send</button>
+  <script src="angular.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="javascripts/clientapp.js"></script>
+  <script src="javascripts/ngsocket.js"></script>
+</head>
+<body>
+  <div id="header">
+    <h1>CHATROOM</h1>
+  </div>
+  <br><br><br><br>
+  <div ng-app="ChatRoomApp" ng-controller="ChatRoomController">
+    <p ng-repeat="message in messages track by $index" ng-class="message.isSender ? 'right':'left'">
+      <span ng-class="message.isSender ? 'sender':'receiver'">
+        {{message.user}}</span>: {{message.text}}
+    </p>
+    <div id="inputBoxes">
+      <input size="20" placeholder="Name" ng-model="user" id="user_textbox">
+      <form ng-submit="send()">
+      <input size="50" placeholder="Message" ng-model="text" ng-submit="send()" id="textbox">
+      <button id="button">Send</button>
+      </form>
+      <a href="#bottom">
+        <img src="images/slice1.png" alt="" >
+      </a>
+    </div>
+  </div>
+  <span>
+    <a name="bottom">
+  </span>
 </body>
 </html>

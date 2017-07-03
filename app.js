@@ -45,7 +45,7 @@ app.io.on("connection", function(socket){
   socket.emit('server');
   socket.on('client', function(data){
     console.log('connected to client');
-  });  
+  });
   socket.on('message', function(data){
     socket.broadcast.emit('OneMessage', data);
   });
