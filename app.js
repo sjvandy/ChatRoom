@@ -50,5 +50,7 @@ app.io.on("connection", function(socket){
     socket.broadcast.emit('OneMessage', data);
   });
 });
-
+app.listen(3000, function(){
+  console.log("Listening on Port 3000");
+})
 module.exports = app;
